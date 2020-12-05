@@ -9,13 +9,13 @@ dest.write('word,n_morph\n')
 def get_n_morph(line):
     line = re.sub("'", '', line)
     morph_part = re.search(r'(?<= \| )(\w+\S+)+', line)[0]
-    n_morph = morph_part.count('/')
+    n_morph = morph_part.count('/') + 1
     return n_morph
 
 
 for line in origin:
     try:
-        word = re.match(r'(\w+\.)', line)[0]
+        _ = re.match(r'(\w+\.)', line)[0]
         continue
 
     except TypeError:
