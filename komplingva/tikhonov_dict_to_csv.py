@@ -9,7 +9,7 @@ dest.write('word,n_morph\n')
 def get_n_morph(line):
     line = re.sub("'", '', line)
     morph_part = re.search(r'(?<= \| )(\w+\S+)+', line)[0]
-    n_morph = morph_part.count('/') + 1
+    n_morph = morph_part.count('/')
     return n_morph
 
 
@@ -34,5 +34,6 @@ for line in origin:
             raise NameError('wow')
 
     dest.write(word + ',' + str(n_morph) + '\n')
+    
 origin.close()
 dest.close()
